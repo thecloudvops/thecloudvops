@@ -3,7 +3,7 @@ There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
-### [Título del Artículo 1](articulo1.md)
+### [Título del Artículo 1](.\articulos\articulo_1.md)
 **Descripción:** Breve descripción del artículo 1.
 
 ---
