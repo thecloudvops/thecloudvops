@@ -24,9 +24,11 @@
 
 .pagination__item--prev, 
 .pagination__item--next {
-  background-color: #007bff;
+  background-color: #ff5733;  /* Nuevo color */
 }
 
-.pagination__item:hover {
-  background-color: #0056b3;
+.pagination__item--prev:hover, 
+.pagination__item--next:hover {
+  background-color: #c70039;  /* Nuevo color al pasar el cursor */
 }
+
