@@ -1,6 +1,4 @@
 
-@import 'jekyll-theme-cayman';
-
 .pagination {
   text-align: center;
   margin-top: 20px;
@@ -31,4 +29,6 @@
 .pagination__item--next:hover {
   background-color: #c70039;  /* Nuevo color al pasar el cursor */
 }
+
+@import 'jekyll-theme-cayman';
 
