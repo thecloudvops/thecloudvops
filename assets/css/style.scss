@@ -1,4 +1,3 @@
-
 .pagination {
   text-align: center;
   margin-top: 20px;
@@ -9,25 +8,23 @@
   padding: 10px 20px;
   margin: 0 5px;
   text-decoration: none;
-  color: #115bde;
-  background-color: #157878;
+  color: #080909;
   border-radius: 5px;
+  border-color: #004d40;
   font-size: 16px;
 }
 
 .pagination__item--current {
   font-weight: bold;
-  background-color: #004d40;
+  border-radius: 5px;
+  border-color: #004d40;
 }
+
 
 .pagination__item--prev, 
 .pagination__item--next {
-  background-color: #115bde;  /* Nuevo color */
-}
 
-.pagination__item--prev:hover, 
-.pagination__item--next:hover {
-  background-color: #c70039;  /* Nuevo color al pasar el cursor */
+  background-color: #2b7190;  /* Nuevo color */
 }
 
 @import 'jekyll-theme-cayman';
