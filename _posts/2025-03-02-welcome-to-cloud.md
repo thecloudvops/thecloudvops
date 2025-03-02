@@ -1,6 +1,5 @@
 ---
 title: "Bienvenido a Thecloudvops!"
-date: 2025-03-02T23:00:30-04:00
 categories:
   - blog
 tags:
