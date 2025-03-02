@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Portal de recursos DevOps enfocado en Azure y tecnología Microsoft. Encuentra tutoriales, guías, mejores prácticas, 
   y novedades sobre integración continua, entrega continua y automatización en la nube con herramientas como Azure DevOps, Terraform y más. 
   Ideal para profesionales y empresas que buscan optimizar sus procesos de desarrollo y operaciones con soluciones Microsoft.
-github_username: @AZAlberto
+github_username: AZAlberto
 minimal_mistakes_skin: "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
 
