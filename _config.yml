@@ -13,14 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
+title: Thecloudvops
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
+  Portal de recursos DevOps enfocado en Azure y tecnología Microsoft. Encuentra tutoriales, guías, mejores prácticas, 
+  y novedades sobre integración continua, entrega continua y automatización en la nube con herramientas como Azure DevOps, Terraform y más. 
+  Ideal para profesionales y empresas que buscan optimizar sus procesos de desarrollo y operaciones con soluciones Microsoft.
+github_username: @AZAlberto
 minimal_mistakes_skin: "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
 
@@ -61,14 +60,11 @@ plugins:
 author:
   name   : "Alberto Ventura"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Apasionado del mundo cloud"
+  bio    : "Apasionado del mundo cloud, Un sitio dedicado a compartir conocimientos y recursos sobre DevOps, con un enfoque especial en Azure y las soluciones tecnológicas de Microsoft. ¡Bienvenido!"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
@@ -78,9 +74,6 @@ author:
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
