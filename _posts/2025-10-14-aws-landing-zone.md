@@ -1,5 +1,6 @@
 ---
 title: "Implementando AWS Landing Zone: Una Guía Práctica para Empresas Multi-cuenta"
+date: 2025-10-10
 categories:
   - blog
 tags:
