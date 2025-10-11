@@ -10,6 +10,6 @@ tags:
   - IaC
 ---
 
-![Route 53 Architecture](../assets/images/posts/aws-route53/route53-arch.png)
+![Route 53 Architecture](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2020/06/08/diagram-1-1024x514.png)
 
 [Resto del contenido del artículo...]

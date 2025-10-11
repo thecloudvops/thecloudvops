@@ -10,6 +10,6 @@ tags:
   - Cloud
 ---
 
-![Arquitectura de Red Azure](../assets/images/posts/azure-networking/azure-network-arch.png)
+![Arquitectura de Red Azure](https://learn.microsoft.com/es-es/azure/architecture/reference-architectures/hybrid-networking/media/hub-spoke-topology.png)
 
 [Resto del contenido del artículo...]

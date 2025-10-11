@@ -10,6 +10,6 @@ tags:
   - Cloud
 ---
 
-![Azure DNS Overview](../assets/images/posts/azure-dns/azure-dns-overview.png)
+![Azure DNS Overview](https://learn.microsoft.com/es-es/azure/dns/media/dns-overview/scenario.png)
 
 [Resto del contenido del artículo...]
