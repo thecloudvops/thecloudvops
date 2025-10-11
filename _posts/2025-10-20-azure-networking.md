@@ -1,5 +1,6 @@
 ---
 title: "Arquitectura de Networking en Azure con Terraform: Guía Completa"
+date: 2025-10-09
 categories:
   - blog
 tags:
