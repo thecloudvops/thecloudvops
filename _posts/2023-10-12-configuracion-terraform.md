@@ -1,6 +1,6 @@
 ---
 title: "Configuración del Entorno para Terraform: Guía Completa"
-date: 2025-10-12
+date: 2023-10-12
 categories:
   - blog
 tags:
