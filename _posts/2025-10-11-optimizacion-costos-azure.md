@@ -1,6 +1,6 @@
 ---
 title: "Optimización de Costos en Azure: Implementando Azure Cost Management con Terraform"
-date: 2023-10-12
+date: 2025-10-12
 categories:
   - blog
 tags:
