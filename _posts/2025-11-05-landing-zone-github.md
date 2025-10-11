@@ -14,7 +14,11 @@ tags:
 
 La gestión eficiente del código de una Landing Zone es crucial para mantener una infraestructura escalable y segura. En este artículo, exploraremos cómo organizar y gestionar el código de una Landing Zone utilizando GitHub y Terraform.
 
-![Landing Zone Structure](../assets/images/posts/landing-zone-github/landing-zone-structure.png)
+![Landing Zone Structure](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/media/landing-zone-final.png)
+
+<!-- Local image path once we have the image:
+![Landing Zone Structure](/assets/images/posts/landing-zone-github/landing-zone-structure.png)
+-->
 
 ## Estructura del Repositorio
 
@@ -105,7 +109,6 @@ jobs:
       run: terraform apply -auto-approve tfplan
 ```
 
-![CI/CD Pipeline](../assets/images/posts/2025-11-05/cicd-pipeline.png)
 
 ## Control de Versiones y Branches
 
@@ -173,7 +176,6 @@ module "test_baseline" {
 }
 ```
 
-![Testing Framework](../assets/images/posts/2025-11-05/testing-framework.png)
 
 ## Automatización de Documentación
 
