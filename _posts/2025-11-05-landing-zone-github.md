@@ -1,5 +1,6 @@
 ---
 title: "Gestión de Código para Landing Zones con GitHub y Terraform"
+date: 2023-10-12
 categories:
   - blog
 tags:
