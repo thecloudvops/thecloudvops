@@ -14,11 +14,7 @@ tags:
 
 La implementación de una arquitectura de red sólida en Azure es fundamental para cualquier despliegue en la nube. En este artículo, exploraremos cómo diseñar e implementar una infraestructura de red completa utilizando Terraform.
 
-![Arquitectura de Red Azure](https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png)
-
-<!-- Local image path once we have the image:
 ![Arquitectura de Red Azure](/assets/images/posts/azure-networking/azure-network-arch.png)
--->
 
 ## Diseño de la Red Virtual
 
