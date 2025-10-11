@@ -10,7 +10,7 @@ tags:
   - IaC
 ---
 
-![Azure Cost Management Dashboard](../assets/images/posts/2025-10-11/azure-cost-dashboard.png)
+![Azure Cost Management Dashboard](/assets/images/posts/azure-cost/azure-cost-dashboard.png)
 
 ## Introducción
 
