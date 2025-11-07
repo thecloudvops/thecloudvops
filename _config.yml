@@ -13,13 +13,23 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Thecloudvops
-email:
+title: "TheCloudvops - Portal DevOps y Cloud | Azure, Terraform, y Automatización"
+email: contact@thecloudvops.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Portal de recursos DevOps enfocado en Azure y tecnología Microsoft. Encuentra tutoriales, guías, mejores prácticas, 
-  y novedades sobre integración continua, entrega continua y automatización en la nube con herramientas como Azure DevOps, Terraform y más. 
-  Ideal para profesionales y empresas que buscan optimizar sus procesos de desarrollo y operaciones con soluciones Microsoft.
+  Portal líder en recursos DevOps y Cloud Computing especializado en Azure y tecnología Microsoft. Encuentra tutoriales expertos, guías detalladas, 
+  y mejores prácticas sobre CI/CD, IaC, y automatización cloud con Azure DevOps, Terraform, y más. 
+  La referencia definitiva para profesionales y empresas en transformación digital con soluciones Microsoft.
 github_username: AZAlberto
+url: "https://thecloudvops.com"
+logo: "/assets/images/logo.png"
+og_image: "/assets/images/site-logo.png"
+social:
+  type: Organization
+  name: TheCloudvops
+  links:
+    - "https://linkedin.com/in/alberto-ventura-662996166"
+    - "https://github.com/thecloudvops"
+    - "https://instagram.com/alberto_ventu94"
 minimal_mistakes_skin: "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
 
