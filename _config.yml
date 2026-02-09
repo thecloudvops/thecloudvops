@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Blog personal sobre DevOps, Cloud Computing y tecnología. Tutoriales, experiencias y recursos para aprender juntos sobre Azure, Terraform, Kubernetes y más.
 github_username: AZAlberto
 url: "https://thecloudvops.com"
-baseurl: "/thecloudvops-dev"
+baseurl: ""
 logo: "/assets/images/logo/logo.png"
 og_image: "/assets/images/logo/site-logo.png"
 header:
