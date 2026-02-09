@@ -16,9 +16,11 @@ seo:
   description: "Guía completa de automatización de FinOps en Azure usando Terraform. Aprende a implementar presupuestos, alertas y dashboards para control de costes en 2026."
 ---
 
-## La Evolución del FinOps en Azure: Más Allá del Control Manual
+## ¿Qué es FinOps? (explicación sencilla)
 
-El control de costes en la nube ha evolucionado de ser una tarea reactiva a convertirse en una disciplina proactiva y automatizada. En este artículo, exploraremos cómo implementar una estrategia FinOps completa en Azure utilizando Terraform.
+FinOps es una forma de trabajar que ayuda a las empresas a controlar y optimizar el dinero que gastan en la nube. Antes, todo era manual y reactivo (solo actuabas cuando llegaba una factura alta). Ahora, con herramientas como Terraform y Azure, puedes automatizar el control y evitar sustos.
+
+En este artículo, te explico cómo empezar con FinOps en Azure, aunque nunca hayas trabajado con la nube ni con presupuestos.
 
 ## Requisitos Previos
 

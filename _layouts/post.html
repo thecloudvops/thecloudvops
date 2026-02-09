@@ -1,0 +1,317 @@
+---
+layout: default
+---
+
+<div class="back-to-home">
+  <a href="{{ site.baseurl }}/">← Volver al inicio</a>
+</div>
+
+<article class="post">
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+      {% if page.author %}
+        • <span class="author">{{ page.author }}</span>
+      {% endif %}
+      {% if page.categories %}
+        • <span class="categories">
+          {% for category in page.categories %}
+            <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+  <footer class="post-footer">
+    <div class="post-tags">
+      <h3>Tags:</h3>
+      {% for tag in page.tags %}
+        <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="tag">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </footer>
+  {% endif %}
+
+  <div class="related-posts">
+    <h3>Posts relacionados</h3>
+    <div class="related-posts-grid">
+      {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | sample: 3 %}
+      {% for post in related_posts %}
+        <article class="related-post-card">
+          {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.title }}">
+          {% endif %}
+          <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+          <p>
+            {% if post.excerpt %}
+              {{ post.excerpt | strip_html | truncatewords: 15 }}
+            {% else %}
+              {{ post.content | strip_html | truncatewords: 15 }}
+            {% endif %}
+          </p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</article>
+
+<div class="social-icons-bottom">
+  <a href="https://linkedin.com/in/alberto-ventura-662996166" target="_blank" title="LinkedIn" style="color:#0077b5; font-size:1.5rem;">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M29 0H3C1.343 0 0 1.343 0 3v26c0 1.657 1.343 3 3 3h26c1.657 0 3-1.343 3-3V3c0-1.657-1.343-3-3-3zM9.339 27.001H4.669V12.001h4.67v15zm-2.335-17.07c-1.493 0-2.339-1.021-2.339-2.3 0-1.304.872-2.299 2.393-2.299s2.339.995 2.339 2.299c0 1.279-.846 2.3-2.393 2.3zm20.001 17.07h-4.67v-7.5c0-1.888-.676-3.177-2.366-3.177-1.291 0-2.059.87-2.398 1.709-.124.303-.155.726-.155 1.151v7.817h-4.67s.062-12.687 0-14h4.67v1.985c.62-.956 1.729-2.321 4.207-2.321 3.073 0 5.381 2.008 5.381 6.322v8.014z"/></svg>
+  </a>
+  <a href="https://instagram.com/alberto_ventu94" target="_blank" title="Instagram" style="color:#E4405F; font-size:1.5rem;">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 7.6A8.4 8.4 0 1 0 24.4 16 8.41 8.41 0 0 0 16 7.6zm0 13.8A5.4 5.4 0 1 1 21.4 16 5.41 5.41 0 0 1 16 21.4zm10.8-14.2a2 2 0 1 1-2-2A2 2 0 0 1 26.8 7.2zm5.6 2A7.2 7.2 0 0 0 29.2 3.6 7.2 7.2 0 0 0 24.8 2a29.2 29.2 0 0 0-8.8 0A7.2 7.2 0 0 0 7.2 3.6 7.2 7.2 0 0 0 2 7.2a29.2 29.2 0 0 0 0 8.8A7.2 7.2 0 0 0 3.6 24.8 7.2 7.2 0 0 0 7.2 29.2a29.2 29.2 0 0 0 8.8 0 7.2 7.2 0 0 0 4.4-1.6 7.2 7.2 0 0 0 1.6-4.4 29.2 29.2 0 0 0 0-8.8A7.2 7.2 0 0 0 29.2 7.2zm-2.2 17.6a4.2 4.2 0 0 1-2.4 2.4c-1.7.7-5.7.5-7.6.5s-5.9.2-7.6-.5a4.2 4.2 0 0 1-2.4-2.4c-.7-1.7-.5-5.7-.5-7.6s-.2-5.9.5-7.6a4.2 4.2 0 0 1 2.4-2.4c1.7-.7 5.7-.5 7.6-.5s5.9-.2 7.6.5a4.2 4.2 0 0 1 2.4 2.4c.7 1.7.5 5.7.5 7.6s.2 5.9-.5 7.6z"/></svg>
+  </a>
+</div>
+
+<!-- Botón flotante para ir arriba -->
+<div class="go-top-arrow" onclick="window.scrollTo({top:0,behavior:'smooth'});" title="Ir arriba">
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 24V8M16 8L8 16M16 8L24 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<style>
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.post-header h1 {
+  color: #0366d6;
+  margin-bottom: 0.5rem;
+}
+
+.post-meta {
+  color: #586069;
+  font-size: 0.9rem;
+}
+
+.post-meta a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+.post-content {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: #0366d6;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}
+
+.post-content code {
+  background: #f6f8fa;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #0366d6;
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #586069;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e1e4e8;
+}
+
+.post-tags {
+  margin-bottom: 1rem;
+}
+
+.post-tags h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #586069;
+}
+
+.tag {
+  display: inline-block;
+  background: #f1f3f4;
+  color: #0366d6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  border: 1px solid #0366d6;
+}
+
+.tag:hover {
+  background: #0366d6;
+  color: white;
+}
+
+.back-to-home {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.back-to-home a {
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.back-to-home a:hover {
+  text-decoration: underline;
+}
+
+.go-top-arrow {
+  position: fixed;
+  right: 2vw;
+  bottom: 2vw;
+  background: rgba(3,102,214,0.55);
+  color: #fff;
+  padding: 0.7em 0.9em;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.65;
+  transition: background 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.go-top-arrow:hover {
+  background: rgba(3,102,214,0.85);
+  opacity: 1;
+}
+.go-top-arrow svg {
+  display: block;
+}
+@media (max-width: 600px) {
+  .go-top-arrow {
+    padding: 0.5em 0.6em;
+    right: 1vw;
+    bottom: 1vw;
+  }
+  .go-top-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.related-posts {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e1e4e8;
+}
+
+.related-posts h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #24292e;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.related-post-card {
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+  transition: box-shadow 0.2s;
+}
+
+.related-post-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.related-post-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.related-post-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.related-post-card h4 a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.related-post-card h4 a:hover {
+  text-decoration: underline;
+}
+
+.related-post-card p {
+  font-size: 0.9rem;
+  color: #586069;
+  line-height: 1.4;
+}
+
+.social-icons-bottom {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
+</style>

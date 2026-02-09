@@ -1,0 +1,307 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body>
+
+
+    <nav class="main-navigation">
+      <div class="nav-container">
+        <a href="{{ site.baseurl }}/" class="nav-logo">TheCloudvops</a>
+        <div class="search-container">
+          <button class="search-toggle" id="search-toggle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </button>
+          <div class="search-wrapper">
+            <input type="text" class="search-input" id="search-input" placeholder="Buscar posts...">
+            <div class="search-suggestions" id="search-suggestions"></div>
+          </div>
+        </div>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="{{ site.baseurl }}/">Inicio</a></li>
+            <li><a href="{{ site.baseurl }}/blog/">Blog</a></li>
+            <li><a href="{{ site.baseurl }}/#about">Sobre mí</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="main-content">
+      {{ content }}
+    </section>
+
+    <style>
+    /* Navigation styles */
+    .main-navigation {
+      background: #fff;
+      border-bottom: 1px solid #e1e4e8;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0366d6;
+      text-decoration: none;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 1rem;
+      position: relative;
+    }
+
+    .search-wrapper {
+      position: relative;
+    }
+
+    .search-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #586069;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .search-toggle:hover {
+      background: #f6f8fa;
+    }
+
+    .search-input {
+      display: none;
+      padding: 0.5rem;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      width: 200px;
+    }
+
+    .search-input.active {
+      display: block;
+    }
+
+    .search-suggestions {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0.5rem;
+      right: 0;
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .search-suggestions.show {
+      display: block;
+    }
+
+    .suggestion-item {
+      padding: 0.75rem;
+      border-bottom: 1px solid #f6f8fa;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .suggestion-item:hover {
+      background: #f6f8fa;
+    }
+
+    .suggestion-item:last-child {
+      border-bottom: none;
+    }
+
+    .suggestion-title {
+      font-weight: 500;
+      color: #0366d6;
+      margin-bottom: 0.25rem;
+    }
+
+    .suggestion-excerpt {
+      font-size: 0.85rem;
+      color: #586069;
+    }
+
+    .hamburger-menu {
+      position: relative;
+    }
+
+    .hamburger-icon {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .hamburger-icon span {
+      width: 25px;
+      height: 3px;
+      background: #0366d6;
+      margin: 3px 0;
+      transition: 0.3s;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 0.375rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .hamburger-menu:hover .nav-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-menu li {
+      margin: 0;
+    }
+
+    .nav-menu li a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #586069;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .nav-menu li a:hover {
+      background-color: #f8f9fa;
+      color: #0366d6;
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hamburger-menu {
+        align-self: flex-end;
+      }
+    }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchToggle = document.getElementById('search-toggle');
+        const searchInput = document.getElementById('search-input');
+        const searchSuggestions = document.getElementById('search-suggestions');
+
+        // Lista de posts para búsqueda (solo en home)
+        let posts = [];
+        if (document.querySelector('.latest-articles-section')) {
+          document.querySelectorAll('.article-card').forEach(card => {
+            const title = card.querySelector('h3 a').textContent;
+            const url = card.querySelector('h3 a').href;
+            const excerpt = card.querySelector('p') ? card.querySelector('p').textContent : '';
+            posts.push({ title, url, excerpt });
+          });
+        }
+
+        searchToggle.addEventListener('click', function() {
+          searchInput.classList.toggle('active');
+          if (searchInput.classList.contains('active')) {
+            searchInput.focus();
+          } else {
+            searchSuggestions.classList.remove('show');
+          }
+        });
+
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          searchSuggestions.innerHTML = '';
+
+          if (query.length > 0) {
+            const matches = posts.filter(post =>
+              post.title.toLowerCase().includes(query) ||
+              post.excerpt.toLowerCase().includes(query)
+            ).slice(0, 5); // Máximo 5 sugerencias
+
+            if (matches.length > 0) {
+              matches.forEach(match => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+                item.innerHTML = `
+                  <div class="suggestion-title">${match.title}</div>
+                  <div class="suggestion-excerpt">${match.excerpt.substring(0, 100)}...</div>
+                `;
+                item.addEventListener('click', () => {
+                  window.location.href = match.url;
+                });
+                searchSuggestions.appendChild(item);
+              });
+              searchSuggestions.classList.add('show');
+            } else {
+              searchSuggestions.classList.remove('show');
+            }
+          } else {
+            searchSuggestions.classList.remove('show');
+          }
+        });
+
+        // Cerrar sugerencias al hacer clic fuera
+        document.addEventListener('click', function(e) {
+          if (!searchInput.contains(e.target) && !searchToggle.contains(e.target) && !searchSuggestions.contains(e.target)) {
+            searchSuggestions.classList.remove('show');
+            searchInput.classList.remove('active');
+          }
+        });
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

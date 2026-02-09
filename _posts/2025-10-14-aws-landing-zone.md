@@ -13,7 +13,15 @@ tags:
 
 ## Introducción
 
-La gestión de múltiples cuentas en AWS es un desafío común para las organizaciones en crecimiento. AWS Landing Zone proporciona una base segura y bien arquitectada para gestionar múltiples cuentas y workloads. En este artículo, exploraremos cómo implementar una Landing Zone en AWS usando las mejores prácticas y herramientas de Infrastructure as Code.
+¿No sabes qué es AWS ni para qué sirve una Landing Zone? Aquí te lo explico fácil:
+
+**AWS** es la nube de Amazon, donde puedes crear servidores, bases de datos y mucho más, sin tener que comprar hardware.
+
+Cuando una empresa crece, suele necesitar varias cuentas para separar proyectos, equipos o entornos (por ejemplo, pruebas y producción). Gestionar todo esto puede ser un lío.
+
+**AWS Landing Zone** es como un kit de inicio que te ayuda a organizar y proteger todas esas cuentas desde el principio, siguiendo buenas prácticas.
+
+En este artículo, te enseño cómo crear esa base usando Terraform, una herramienta que te permite "dibujar" tu infraestructura en archivos de texto, aunque nunca lo hayas hecho antes.
 
 ## ¿Qué es AWS Landing Zone?
 

@@ -13,13 +13,15 @@ tags:
 
 ## Introducción
 
-Para comenzar a desarrollar Infraestructura como Código (IaC) con Terraform, necesitas configurar adecuadamente tu entorno de desarrollo. En esta guía, te explicaré paso a paso todo lo necesario para empezar.
+¿Nunca has usado Terraform ni sabes qué es IaC? No te preocupes. **Terraform** es una herramienta que te permite crear y gestionar recursos en la nube (como servidores, redes o bases de datos) usando archivos de texto. Esto se llama "Infraestructura como Código" (IaC), y hace que todo sea más fácil de repetir, modificar y compartir.
+
+En esta guía, te explico desde cero cómo preparar tu ordenador para usar Terraform, aunque nunca hayas trabajado con la nube ni con programación.
 
 ## Requisitos Básicos
 
 ### 1. Instalar Terraform CLI
 
-El binario de Terraform es esencial para ejecutar comandos y gestionar tu infraestructura.
+Terraform CLI es el programa principal que necesitas para crear y gestionar recursos en la nube desde tu ordenador. Aquí tienes cómo instalarlo en Windows y Linux, y cómo comprobar que la instalación fue exitosa.
 
 **Windows (con Chocolatey):**
 ```powershell
@@ -38,21 +40,21 @@ terraform version
 
 ### 2. Editor de Código
 
-VS Code es la opción recomendada por sus extensiones y soporte para Terraform:
+Para escribir y editar tus archivos de Terraform de forma cómoda, se recomienda usar Visual Studio Code junto con la extensión oficial de HashiCorp. Esto te dará ayudas visuales, autocompletado y validación de tu código.
 
 1. Instalar [Visual Studio Code](https://code.visualstudio.com/)
 2. Instalar la extensión [HashiCorp Terraform](https://marketplace.visualstudio.com/items?itemName=HashiCorp.terraform)
 
 Beneficios de la extensión:
-- Syntax highlighting
-- IntelliSense
-- Validación de código
+- Syntax highlighting (colores para el código)
+- IntelliSense (sugerencias automáticas)
+- Validación de código (te avisa de errores)
 - Formato automático
 - Referencias y definiciones
 
 ### 3. Git
 
-Git es esencial para el control de versiones de tu código:
+Git te permite llevar un control de los cambios en tu código y colaborar con otras personas. Es fundamental para cualquier proyecto de infraestructura como código.
 
 ```powershell
 # Windows (Chocolatey)
@@ -63,6 +65,8 @@ sudo apt-get install git
 ```
 
 ### 4. Credenciales del Proveedor Cloud
+
+Para conectarte a Azure o AWS desde Terraform, necesitas instalar las herramientas de línea de comandos y configurar tus credenciales. Esto permite que Terraform se autentique y gestione recursos en la nube.
 
 #### Azure
 ```bash
@@ -94,6 +98,8 @@ aws configure
 
 ## Estructura de Proyecto Recomendada
 
+Organizar tus archivos en carpetas te ayudará a mantener el proyecto limpio y escalable. Aquí tienes un ejemplo de cómo puedes estructurar un proyecto de Terraform, separando los módulos y las variables.
+
 ```plaintext
 proyecto-terraform/
 ├── main.tf           # Configuración principal
@@ -112,16 +118,16 @@ proyecto-terraform/
 
 ## Configuración del Backend
 
-El backend es donde Terraform almacena su estado. Ejemplo con Azure Storage:
+El backend es el lugar donde Terraform guarda el estado de tu infraestructura. Usar Azure Storage como backend permite que varios miembros del equipo compartan el mismo estado y evita conflictos.
 
 ```hcl
 # backend.tf
 terraform {
   backend "azurerm" {
-    resource_group_name  = "terraform-state-rg"
-    storage_account_name = "tfstate12345"
-    container_name      = "tfstate"
-    key                 = "prod.terraform.tfstate"
+    resource_group_name  = "tfstate-rg"
+    storage_account_name = "tfstateaccount"
+    container_name       = "tfstate"
+    key                  = "prod.terraform.tfstate"
   }
 }
 ```
@@ -158,7 +164,7 @@ terraform {
 
 ## Configuración de Pre-commit Hooks
 
-Instala pre-commit para validación automática:
+Los pre-commit hooks son herramientas que se ejecutan automáticamente antes de cada commit para validar tu código. Esto asegura que tu código Terraform esté bien formateado y sin errores antes de guardarlo en el repositorio.
 
 ```bash
 # Instalar pre-commit

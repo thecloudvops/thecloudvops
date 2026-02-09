@@ -9,10 +9,19 @@ tags:
   - DevOps
 ---
 
-Microsoft ha anunciado la **disponibilidad general** de los **Terraform Azure Verified Modules** para la **Platform Landing Zone (ALZ)**. Estos módulos permiten a los usuarios crear infraestructuras de landing zone en **Azure** de manera modular, lo que facilita la selección de componentes específicos según las necesidades del proyecto.
 
-Además, el nuevo **Terraform provider** mejora la fiabilidad de los despliegues, y el **ALZ IaC Accelerator** ahora incluye archivos en formato **HCL** y nuevas fases de planificación. Todo esto permite personalizar y gestionar más fácilmente las configuraciones de landing zones, sin complicar el proceso de implementación.
+## Explicación sencilla
 
-Este avance mejora la flexibilidad de los despliegues y facilita la actualización de infraestructuras sin interrumpir las configuraciones previas. Los usuarios pueden ahora implementar soluciones más robustas y escalables en **Azure** utilizando una infraestructura como código simplificada.
+¿Te suena a chino? No te preocupes. Microsoft ha lanzado unos "módulos verificados" para Terraform, que es una herramienta que nos ayuda a crear y gestionar recursos en la nube (como servidores, redes, bases de datos) usando solo archivos de texto. Estos módulos están pensados para Azure y te permiten montar una base segura y ordenada para tus proyectos en la nube, sin tener que saberlo todo desde el principio.
 
-Para más detalles, puedes leer el artículo completo en [Microsoft Tech Community](https://techcommunity.microsoft.com/blog/azuretoolsblog/announcing-general-availability-of-terraform-azure-verified-modules-for-platform/4366027).
+**Landing Zone** es solo un nombre para esa base inicial, como los cimientos de una casa en la nube.
+
+Con estos módulos, puedes elegir qué partes necesitas y personalizarlas fácilmente. Además, todo es más seguro y fácil de actualizar.
+
+## ¿Por qué es útil?
+
+- No necesitas ser experto para empezar en Azure.
+- Puedes evitar errores comunes porque los módulos ya siguen buenas prácticas.
+- Si tu empresa crece, puedes ampliar la infraestructura sin empezar de cero.
+
+Si quieres saber más, puedes leer el artículo completo en [Microsoft Tech Community](https://techcommunity.microsoft.com/blog/azuretoolsblog/announcing-general-availability-of-terraform-azure-verified-modules-for-platform/4366027).

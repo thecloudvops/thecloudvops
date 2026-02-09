@@ -13,7 +13,13 @@ tags:
 
 ## Introducción
 
-La gestión eficiente del código de una Landing Zone es crucial para mantener una infraestructura escalable y segura. En este artículo, exploraremos cómo organizar y gestionar el código de una Landing Zone utilizando GitHub y Terraform.
+¿No sabes qué es una Landing Zone ni para qué sirve GitHub? Aquí te lo explico fácil:
+
+**Landing Zone** es como el punto de partida para construir en la nube, con reglas y estructuras ya preparadas para que todo funcione bien.
+
+**GitHub** es una plataforma donde puedes guardar y compartir tu código, trabajar en equipo y llevar un control de los cambios.
+
+En este artículo, te enseño cómo organizar el código de tu Landing Zone usando GitHub y **Terraform**, una herramienta que te permite crear la infraestructura con archivos de texto, aunque nunca lo hayas hecho antes.
 
 ![Landing Zone Structure](/assets/images/posts/landing-zone-github/landing-zone-structure.png)
 

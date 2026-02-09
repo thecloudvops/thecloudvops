@@ -16,13 +16,19 @@ seo:
   description: "Implementación completa de GitOps y CI/CD moderno con Terraform y Azure DevOps. Guía práctica para equipos DevOps en 2026."
 ---
 
-## La Evolución del Pipeline DevOps: Hacia un Futuro GitOps
+## ¿Qué es un pipeline DevOps? (explicación sencilla)
 
-La automatización y el control de versiones del código se han convertido en el estándar para la infraestructura moderna. Este artículo presenta una implementación completa de GitOps con Terraform y Azure DevOps.
+Un pipeline DevOps es como una cadena de montaje automática para el software: toma el código, lo prueba, lo empaqueta y lo despliega en la nube, todo sin intervención manual.
+
+**GitOps** es una forma moderna de gestionar todo esto usando Git (una herramienta para guardar y versionar código) y automatización.
+
+En este artículo, te explico cómo funciona un pipeline DevOps moderno usando Terraform y Azure DevOps, aunque nunca hayas trabajado con estas herramientas.
 
 ## Arquitectura del Pipeline
 
 ### 1. Estructura del Repositorio
+
+Esta estructura organiza tu proyecto de forma clara, separando el código de la aplicación, la infraestructura y los pipelines. Así es más fácil mantener y colaborar en equipo.
 
 ```plaintext
 repository/
@@ -50,6 +56,8 @@ repository/
 ## Implementación del Pipeline CI/CD
 
 ### 1. Azure Pipeline Principal
+
+Este archivo YAML define el pipeline de integración continua (CI) en Azure DevOps. Se activa cuando hay cambios en las ramas principales o en archivos específicos, y valida la infraestructura antes de desplegar.
 
 ```yaml
 # .azure/pipelines/ci.yml
@@ -130,6 +138,8 @@ stages:
 
 ### 2. Despliegue con GitOps
 
+Este pipeline de despliegue continuo (CD) se activa después del CI y aplica los cambios a la infraestructura y aplicaciones usando GitOps con Flux.
+
 ```yaml
 # .azure/pipelines/cd.yml
 trigger: none
@@ -182,6 +192,8 @@ stages:
 ## Configuración de GitOps con Flux
 
 ### 1. Flux Bootstrap
+
+Este archivo configura Flux para que monitoree cambios en el repositorio Git y aplique automáticamente las actualizaciones a Kubernetes.
 
 ```yaml
 # kubernetes/flux/gotk-components.yaml

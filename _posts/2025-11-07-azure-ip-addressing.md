@@ -16,9 +16,13 @@ seo:
   description: "Guía definitiva sobre planificación y gestión de direccionamiento IP en Azure. Aprende sobre diseño de VNETs, subnetting y mejores prácticas de seguridad."
 ---
 
-## Fundamentos del Direccionamiento IP en Azure
+## Fundamentos del Direccionamiento IP en Azure (explicado fácil)
 
-El diseño eficiente del direccionamiento IP es crucial para cualquier infraestructura en la nube. Este artículo proporciona una guía completa sobre cómo planificar y gestionar direccionamientos IP en Azure.
+¿No sabes qué es una dirección IP? Es como la dirección de tu casa, pero en Internet. Cada recurso en la nube (servidores, bases de datos, etc.) necesita una dirección para poder comunicarse.
+
+En Azure, puedes organizar estas direcciones en redes virtuales (VNETs) y subredes, para que todo esté ordenado y seguro.
+
+En este artículo, te explico cómo planificar y gestionar estas direcciones en Azure, aunque nunca lo hayas hecho antes.
 
 ## Planificación de VNETs
 

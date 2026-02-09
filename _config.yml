@@ -13,25 +13,41 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Thecloudvops
-email:
+title: "TheCloudvops - Blog personal sobre DevOps y Cloud"
+email: contact@thecloudvops.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Portal de recursos DevOps enfocado en Azure y tecnología Microsoft. Encuentra tutoriales, guías, mejores prácticas, 
-  y novedades sobre integración continua, entrega continua y automatización en la nube con herramientas como Azure DevOps, Terraform y más. 
-  Ideal para profesionales y empresas que buscan optimizar sus procesos de desarrollo y operaciones con soluciones Microsoft.
+  Blog personal sobre DevOps, Cloud Computing y tecnología. Tutoriales, experiencias y recursos para aprender juntos sobre Azure, Terraform, Kubernetes y más.
 github_username: AZAlberto
+url: "https://thecloudvops.com"
+baseurl: "/thecloudvops-dev"
+logo: "/assets/images/logo/logo.png"
+og_image: "/assets/images/logo/site-logo.png"
+header:
+  image: "/assets/images/layout/header-bg.jpg"
+footer:
+  image: "/assets/images/layout/footer-bg.jpg"
+social:
+  type: Person
+  name: Alberto Ventura
+  links:
+    - "https://linkedin.com/in/alberto-ventura-662996166"
+    - "https://github.com/thecloudvops"
+    - "https://instagram.com/alberto_ventu94"
 minimal_mistakes_skin: "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 search: true
 
 
 # Build settings
 markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+theme: jekyll-theme-cayman
 # Outputting
-permalink: /:categories/:title/
+permalink: /blog/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/Madrid
+future: false  # No mostrar posts con fecha futura
+show_drafts: false  # No mostrar drafts en producción
+sidebar: false
 
 include:
   - _pages
@@ -60,7 +76,7 @@ plugins:
 author:
   name   : "Alberto Ventura"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Apasionado del mundo cloud, Un sitio dedicado a compartir conocimientos y recursos sobre DevOps, con un enfoque especial en Azure y las soluciones tecnológicas de Microsoft. ¡Bienvenido!"
+  bio    : "Apasionado de la tecnología y el aprendizaje continuo. Comparto mis experiencias y conocimientos sobre DevOps, Cloud Computing y desarrollo de software."
   links:
     - label: "Linkedin"
       icon: "fas fa-fw fa-linkedin"
@@ -87,7 +103,7 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: post
       author_profile: true
       read_time: true
       comments: true

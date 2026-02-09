@@ -1,7 +1,392 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
-author_profile: true
+layout: default
+title: TheCloudvops - DevOps, Cloud y Automatización
 ---
+
+
+<section class="hero-banner">
+  <div class="hero-content">
+    <h1>TheCloudvops</h1>
+    <p class="hero-subtitle">Elevando tu infraestructura al siguiente nivel</p>
+    <p class="hero-description">
+      Un espacio dedicado a DevOps, Cloud Computing y Automatización. Tutoriales profundos, mejores prácticas y
+      experiencias compartidas para profesionales de la tecnología.
+    </p>
+    <div class="hero-cta">
+      <a href="#blog" class="btn btn-primary">Ver Artículos</a>
+      <a href="#about" class="btn btn-secondary">Sobre mí</a>
+    </div>
+  </div>
+</section>
+
+<div class="latest-articles-section" id="blog">
+  <h2>Últimos Artículos</h2>
+  <a href="{{ site.baseurl }}/blog/" class="view-all-link">Ver todos →</a>
+
+  <div class="articles-grid">
+    {% for post in site.posts limit:6 %}
+    <article class="article-card">
+      {% if post.image %}
+      <div class="article-image">
+        <img src="{{ post.image }}" alt="{{ post.title }}">
+      </div>
+      {% endif %}
+      <div class="article-content">
+        <div class="article-meta">
+          <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
+            {{ post.date | date: "%d %b %Y" }}
+          </time>
+        </div>
+        <h3>
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <p>
+          {% if post.excerpt %}
+          {{ post.excerpt | strip_html | truncatewords: 15 }}
+          {% else %}
+          {{ post.content | strip_html | truncatewords: 15 }}
+          {% endif %}
+        </p>
+        <div class="article-tags">
+          {% for tag in post.tags limit:2 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Leer artículo →</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="about-section" id="about">
+  <h2>Sobre mí</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p>Hola, soy <strong>Alberto Ventura</strong>, un apasionado de la tecnología, DevOps y Cloud Computing. Este blog
+        es mi espacio personal para compartir lo que aprendo, mis experiencias, tutoriales y recursos útiles para la
+        comunidad.</p>
+
+      <p>Me encanta experimentar, aprender y ayudar a otros a crecer en el mundo tecnológico. Aquí encontrarás:</p>
+      <ul class="professional-list">
+        <li><strong>Azure DevOps</strong> - Pipelines automatizados y CI/CD eficiente</li>
+        <li><strong>Infrastructure as Code</strong> - Terraform y despliegues declarativos</li>
+        <li><strong>Containerization</strong> - Kubernetes y orquestación masiva</li>
+        <li><strong>Cloud Architecture</strong> - Mejores prácticas en Azure Cloud</li>
+        <li><strong>Cultura DevOps</strong> - Colaboración y mejora continua</li>
+      </ul>
+
+      <p>Creo en el poder de compartir conocimiento y en la comunidad. Si te gusta aprender, experimentar y compartir,
+        ¡este blog es para ti!</p>
+    </div>
+    <div class="about-image">
+      <img src="/assets/images/bio-photo.jpg" alt="Alberto Ventura">
+    </div>
+  </div>
+</div>
+
+<div class="social-icons-bottom">
+  <a href="https://linkedin.com/in/alberto-ventura-662996166" target="_blank" title="LinkedIn"
+    style="color:#0077b5; font-size:1.5rem;">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M29 0H3C1.343 0 0 1.343 0 3v26c0 1.657 1.343 3 3 3h26c1.657 0 3-1.343 3-3V3c0-1.657-1.343-3-3-3zM9.339 27.001H4.669V12.001h4.67v15zm-2.335-17.07c-1.493 0-2.339-1.021-2.339-2.3 0-1.304.872-2.299 2.393-2.299s2.339.995 2.339 2.299c0 1.279-.846 2.3-2.393 2.3zm20.001 17.07h-4.67v-7.5c0-1.888-.676-3.177-2.366-3.177-1.291 0-2.059.87-2.398 1.709-.124.303-.155.726-.155 1.151v7.817h-4.67s.062-12.687 0-14h4.67v1.985c.62-.956 1.729-2.321 4.207-2.321 3.073 0 5.381 2.008 5.381 6.322v8.014z" />
+    </svg>
+  </a>
+  <a href="https://instagram.com/alberto_ventu94" target="_blank" title="Instagram"
+    style="color:#E4405F; font-size:1.5rem;">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16 7.6A8.4 8.4 0 1 0 24.4 16 8.41 8.41 0 0 0 16 7.6zm0 13.8A5.4 5.4 0 1 1 21.4 16 5.41 5.41 0 0 1 16 21.4zm10.8-14.2a2 2 0 1 1-2-2A2 2 0 0 1 26.8 7.2zm5.6 2A7.2 7.2 0 0 0 29.2 3.6 7.2 7.2 0 0 0 24.8 2a29.2 29.2 0 0 0-8.8 0A7.2 7.2 0 0 0 7.2 3.6 7.2 7.2 0 0 0 2 7.2a29.2 29.2 0 0 0 0 8.8A7.2 7.2 0 0 0 3.6 24.8 7.2 7.2 0 0 0 7.2 29.2a29.2 29.2 0 0 0 8.8 0 7.2 7.2 0 0 0 4.4-1.6 7.2 7.2 0 0 0 1.6-4.4 29.2 29.2 0 0 0 0-8.8A7.2 7.2 0 0 0 29.2 7.2zm-2.2 17.6a4.2 4.2 0 0 1-2.4 2.4c-1.7.7-5.7.5-7.6.5s-5.9.2-7.6-.5a4.2 4.2 0 0 1-2.4-2.4c-.7-1.7-.5-5.7-.5-7.6s-.2-5.9.5-7.6a4.2 4.2 0 0 1 2.4-2.4c1.7-.7 5.7-.5 7.6-.5s5.9-.2 7.6.5a4.2 4.2 0 0 1 2.4 2.4c.7 1.7.5 5.7.5 7.6s.2 5.9-.5 7.6z" />
+    </svg>
+  </a>
+</div>
+
+<style>
+  /* New Professional Hero Banner */
+  .hero-banner {
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #fff;
+    border-radius: 2rem;
+    margin: 2rem auto 4rem auto;
+    max-width: 1200px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-banner h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
+  }
+
+  /* Section Titles */
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #2563eb;
+    margin: 1rem auto;
+    border-radius: 2px;
+  }
+
+  /* Latest Articles Section */
+  .latest-articles-section {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .view-all-link {
+    display: block;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+
+  .view-all-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .article-card {
+    background: #fff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f1f5f9;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .article-image {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .article-card:hover .article-image img {
+    transform: scale(1.05);
+  }
+
+  .article-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-meta {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .article-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .article-card h3 a {
+    color: #1e293b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .article-card h3 a:hover {
+    color: #2563eb;
+  }
+
+  .article-card p {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .article-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .read-more {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.95rem;
+    transition: gap 0.3s ease;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 6rem 1rem;
+    background: #f8fafc;
+    margin: 4rem 0;
+  }
+
+  .about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    color: #334155;
+    line-height: 1.8;
+  }
+
+  .professional-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .professional-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .professional-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 8px solid #fff;
+  }
+
+  @media (max-width: 768px) {
+    .hero-banner h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      padding: 0 2rem;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .about-image {
+      order: -1;
+    }
+
+    .professional-list li {
+      padding-left: 0;
+    }
+
+    .professional-list li::before {
+      display: none;
+    }
+  }
+
+  .social-icons-bottom {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+</style>
