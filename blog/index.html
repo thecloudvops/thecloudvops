@@ -13,6 +13,7 @@ permalink: /blog/
 <div class="blog-filters">
   <h2>Categorías</h2>
   <div class="category-buttons">
+    <a href="#category-all" class="category-filter-btn active" data-category="all">Todas</a>
     {% for category in site.categories %}
       <a href="#category-{{ category[0] | slugify }}" class="category-filter-btn" data-category="{{ category[0] | slugify }}">
         {{ category[0] }} ({{ category[1].size }})
@@ -22,6 +23,7 @@ permalink: /blog/
 
   <h2>Etiquetas Populares</h2>
   <div class="tags-buttons">
+    <a href="#tag-all" class="tag-filter-btn active" data-tag="all">Todas</a>
     {% assign sorted_tags = site.tags | sort %}
     {% for tag in sorted_tags limit:10 %}
       <a href="#tag-{{ tag[0] | slugify }}" class="tag-filter-btn" data-tag="{{ tag[0] | slugify }}">
@@ -86,48 +88,135 @@ permalink: /blog/
 {% endif %}
 
 <script>
-  // Simple filtering functionality
+  // Advanced filtering functionality via JSON endpoint
   document.addEventListener('DOMContentLoaded', function() {
     const categoryButtons = document.querySelectorAll('.category-filter-btn');
     const tagButtons = document.querySelectorAll('.tag-filter-btn');
-    const posts = document.querySelectorAll('.blog-card');
+    const postsGrid = document.getElementById('posts-grid');
+    const paginationControls = document.querySelector('.pagination');
+    let allPostsData = null; // To cache the JSON data
+    let isLoading = false;
 
-    function filterPosts() {
+    // Save the original HTML in case we want to revert to the paginated view
+    const originalPostsHtml = postsGrid.innerHTML;
+
+    async function fetchAllPosts() {
+      if (allPostsData) return allPostsData;
+      if (isLoading) return null;
+      
+      isLoading = true;
+      try {
+        const response = await fetch('{{ "/api/posts.json" | relative_url }}');
+        if (!response.ok) throw new Error('Network response was not ok');
+        allPostsData = await response.json();
+        return allPostsData;
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+        return null;
+      } finally {
+        isLoading = false;
+      }
+    }
+
+    function renderPosts(filteredPosts) {
+      if (filteredPosts.length === 0) {
+        postsGrid.innerHTML = '<p class="no-results">No se encontraron artículos para este filtro.</p>';
+        return;
+      }
+
+      let html = '';
+      filteredPosts.forEach(post => {
+        let imageHtml = post.image ? `<img src="${post.image}" alt="${post.title}">` : '';
+        let tagsHtml = post.tags_display.slice(0, 3).map(tag => `<span class="blog-tag">${tag}</span>`).join('');
+        
+        html += `
+          <article class="blog-card" data-category="${post.category_slug}" data-tags="${post.tags.join(' ')}">
+            <div class="blog-card-category">${post.category}</div>
+            ${imageHtml}
+            <div class="blog-card-meta">
+              <time datetime="${post.date}">${post.date_formatted}</time>
+            </div>
+            <h2>
+              <a href="${post.url}">${post.title}</a>
+            </h2>
+            <p>${post.excerpt}</p>
+            <div class="blog-card-tags">
+              ${tagsHtml}
+            </div>
+            <a href="${post.url}">Leer artículo →</a>
+          </article>
+        `;
+      });
+      postsGrid.innerHTML = html;
+    }
+
+    async function filterPosts() {
       const activeCategory = document.querySelector('.category-filter-btn.active')?.dataset.category;
       const activeTag = document.querySelector('.tag-filter-btn.active')?.dataset.tag;
 
-      posts.forEach(post => {
-        const postCategory = post.dataset.category;
-        const postTags = post.dataset.tags;
+      // If both filters are cleared (or "all" is active), revert to default paginated view
+      if ((!activeCategory || activeCategory === 'all') && (!activeTag || activeTag === 'all')) {
+        postsGrid.innerHTML = originalPostsHtml;
+        if (paginationControls) paginationControls.style.display = 'block';
+        return;
+      }
 
-        let show = true;
+      // Hide pagination controls when a custom filter is active
+      if (paginationControls) paginationControls.style.display = 'none';
 
-        if (activeCategory && postCategory !== activeCategory) {
-          show = false;
+      const posts = await fetchAllPosts();
+      if (!posts) return;
+
+      const filteredPosts = posts.filter(post => {
+        let matchCategory = true;
+        let matchTag = true;
+
+        if (activeCategory && activeCategory !== 'all') {
+          matchCategory = post.category_slug === activeCategory;
         }
 
-        if (activeTag && !postTags.includes(activeTag)) {
-          show = false;
+        if (activeTag && activeTag !== 'all') {
+          matchTag = post.tags.includes(activeTag);
         }
 
-        post.style.display = show ? 'block' : 'none';
+        return matchCategory && matchTag;
       });
+
+      renderPosts(filteredPosts);
     }
 
+    // Event listeners for category buttons
     categoryButtons.forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
-        categoryButtons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+        
+        // If clicking the already active button, deselect it and set 'all' as active
+        if (this.classList.contains('active')) {
+           this.classList.remove('active');
+           document.querySelector('.category-filter-btn[data-category="all"]')?.classList.add('active');
+        } else {
+           categoryButtons.forEach(b => b.classList.remove('active'));
+           this.classList.add('active');
+        }
+        
         filterPosts();
       });
     });
 
+    // Event listeners for tag buttons
     tagButtons.forEach(btn => {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
-        tagButtons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+        
+        // If clicking the already active button, deselect it and set 'all' as active
+        if (this.classList.contains('active')) {
+           this.classList.remove('active');
+           document.querySelector('.tag-filter-btn[data-tag="all"]')?.classList.add('active');
+        } else {
+           tagButtons.forEach(b => b.classList.remove('active'));
+           this.classList.add('active');
+        }
+        
         filterPosts();
       });
     });
