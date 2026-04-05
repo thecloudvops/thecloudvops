@@ -1,5 +1,6 @@
 ---
 title: "Bienvenido a Thecloudvops!"
+image: "/assets/images/welcome-cloud.png"
 categories:
   - blog
 tags:
