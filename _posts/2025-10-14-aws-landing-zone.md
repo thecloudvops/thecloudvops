@@ -9,6 +9,7 @@ tags:
   - Cloud
   - IaC
   - Terraform
+image: "/assets/images/aws-lz.jpg"
 ---
 
 ## Introducción

@@ -14,6 +14,7 @@ tags:
 seo:
   type: TechArticle
   description: "Guía definitiva sobre planificación y gestión de direccionamiento IP en Azure. Aprende sobre diseño de VNETs, subnetting y mejores prácticas de seguridad."
+image: "/assets/images/azure-ip-addressing.jpg"
 ---
 
 ## Fundamentos del Direccionamiento IP en Azure (explicado fácil)

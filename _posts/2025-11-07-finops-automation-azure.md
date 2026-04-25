@@ -14,6 +14,7 @@ tags:
 seo:
   type: TechArticle
   description: "Guía completa de automatización de FinOps en Azure usando Terraform. Aprende a implementar presupuestos, alertas y dashboards para control de costes en 2026."
+image: "/assets/images/finops-azure.jpg"
 ---
 
 ## ¿Qué es FinOps? (explicación sencilla)

@@ -9,6 +9,7 @@ tags:
   - Landing Zone
   - DevOps
   - IaC
+image: "/assets/images/landing-zone-github.jpg"
 ---
 
 ## Introducción

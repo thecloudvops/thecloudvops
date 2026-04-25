@@ -14,6 +14,7 @@ tags:
 seo:
   type: TechArticle
   description: "Guía completa sobre diseño e implementación de redes multi-nube. Aprende a configurar y gestionar redes empresariales en Azure, AWS y Kubernetes."
+image: "/assets/images/multicloud-networking.jpg"
 ---
 
 ## ¿Qué es una red multi-nube? (explicación sencilla)
