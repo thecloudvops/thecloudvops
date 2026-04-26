@@ -59,28 +59,25 @@ title: TheCloudvops - DevOps, Cloud y Automatización
   </div>
 </div>
 
-<div class="about-section" id="about">
-  <h2>Sobre mí</h2>
-  <div class="about-content">
-    <div class="about-text">
-      <p>Hola, soy <strong>Alberto Ventura</strong>, un apasionado de la tecnología, DevOps y Cloud Computing. Este blog
-        es mi espacio personal para compartir lo que aprendo, mis experiencias, tutoriales y recursos útiles para la
-        comunidad.</p>
-
-      <p>Me encanta experimentar, aprender y ayudar a otros a crecer en el mundo tecnológico. Aquí encontrarás:</p>
-      <ul class="professional-list">
-        <li><strong>Azure DevOps</strong> - Pipelines automatizados y CI/CD eficiente</li>
-        <li><strong>Infrastructure as Code</strong> - Terraform y despliegues declarativos</li>
-        <li><strong>Containerization</strong> - Kubernetes y orquestación masiva</li>
-        <li><strong>Cloud Architecture</strong> - Mejores prácticas en Azure Cloud</li>
-        <li><strong>Cultura DevOps</strong> - Colaboración y mejora continua</li>
-      </ul>
-
-      <p>Creo en el poder de compartir conocimiento y en la comunidad. Si te gusta aprender, experimentar y compartir,
-        ¡este blog es para ti!</p>
+<div class="about-section premium-about" id="about">
+  <div class="about-card-premium">
+    <div class="about-image-premium">
+      <div class="image-wrapper">
+        <img src="/assets/images/bio-photo.jpg" alt="Alberto Ventura">
+      </div>
+      <div class="author-badge">Cloud Engineer</div>
     </div>
-    <div class="about-image">
-      <img src="/assets/images/bio-photo.jpg" alt="Alberto Ventura">
+    <div class="about-text-premium">
+      <h2 class="premium-title">Hola, soy <span>Alberto Ventura</span> 👋</h2>
+      <p class="premium-lead">Apasionado de la tecnología, DevOps y Cloud Computing. Este blog es mi espacio para compartir lo que aprendo y ayudar a la comunidad a crecer.</p>
+      <div class="premium-skills">
+        <span class="skill-pill" data-color="blue">Azure DevOps</span>
+        <span class="skill-pill" data-color="purple">Terraform (IaC)</span>
+        <span class="skill-pill" data-color="cyan">Kubernetes</span>
+        <span class="skill-pill" data-color="blue2">Cloud Architecture</span>
+        <span class="skill-pill" data-color="green">Cultura DevOps</span>
+      </div>
+      <p class="premium-footer-text">Creo en el poder del conocimiento abierto. Si te gusta experimentar y automatizar, <strong>¡este blog es para ti!</strong></p>
     </div>
   </div>
 </div>
@@ -395,5 +392,144 @@ title: TheCloudvops - DevOps, Cloud y Automatización
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Premium About Section */
+  .premium-about {
+    padding: 5rem 1rem;
+    max-width: 1000px;
+    margin: 4rem auto;
+  }
+  .about-card-premium {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+    padding: 3.5rem;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .about-card-premium:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  }
+  .about-image-premium {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .image-wrapper {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.5);
+    overflow: hidden;
+  }
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    transition: transform 0.5s ease;
+  }
+  .about-card-premium:hover .image-wrapper img {
+    transform: scale(1.08);
+  }
+  .author-badge {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+  }
+  .about-text-premium {
+    flex-grow: 1;
+  }
+  .premium-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 1rem;
+    text-align: left;
+    margin-top: 0;
+  }
+  .premium-title::after {
+    display: none;
+  }
+  .premium-title span {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .premium-lead {
+    font-size: 1.15rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .premium-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .skill-pill {
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    cursor: default;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+  }
+  .skill-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  }
+  .skill-pill[data-color="blue"]:hover { background: #eff6ff; color: #2563eb; border-color: #bfdbfe; }
+  .skill-pill[data-color="purple"]:hover { background: #faf5ff; color: #9333ea; border-color: #e9d5ff; }
+  .skill-pill[data-color="cyan"]:hover { background: #ecfeff; color: #0891b2; border-color: #a5f3fc; }
+  .skill-pill[data-color="blue2"]:hover { background: #f0f9ff; color: #0284c7; border-color: #bae6fd; }
+  .skill-pill[data-color="green"]:hover { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+  
+  .premium-footer-text {
+    font-size: 1rem;
+    color: #64748b;
+  }
+  .premium-footer-text strong {
+    color: #0f172a;
+  }
+  
+  @media (max-width: 768px) {
+    .about-card-premium {
+      flex-direction: column;
+      padding: 2.5rem 1.5rem;
+      gap: 2.5rem;
+      text-align: center;
+    }
+    .premium-title {
+      text-align: center;
+    }
+    .premium-skills {
+      justify-content: center;
+    }
   }
 </style>
