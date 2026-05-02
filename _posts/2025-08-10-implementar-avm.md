@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Guía práctica: implementar Terraform Azure Verified Modules para ALZ"
 image: "/assets/images/implementar-avm.png"
 categories:

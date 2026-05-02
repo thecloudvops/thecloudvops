@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Automatización de FinOps: Implementación de Presupuestos y Alertas con Terraform en Azure para 2026"
 date: 2025-11-07
 categories:

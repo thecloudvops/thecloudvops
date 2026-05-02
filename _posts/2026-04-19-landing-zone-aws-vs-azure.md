@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Construyendo una Landing Zone en AWS vs Azure: Similitudes y Diferencias (con Terraform)"
 image: "/assets/images/aws-azure-lz.png"
 categories:

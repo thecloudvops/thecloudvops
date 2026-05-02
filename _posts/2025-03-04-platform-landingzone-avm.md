@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Disponibilidad General de los Módulos Verificados de Terraform para Azure"
 image: "/assets/images/platform-lz-avm.png"
 categories:

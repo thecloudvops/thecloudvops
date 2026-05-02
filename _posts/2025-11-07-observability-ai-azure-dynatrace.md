@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Observabilidad impulsada por IA: Integración de Azure y Dynatrace para Operaciones Modernas"
 date: 2025-11-07
 categories:

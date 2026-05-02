@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Pipeline DevOps del Futuro: GitOps, Terraform y Azure DevOps en 2026"
 date: 2025-11-07
 categories:

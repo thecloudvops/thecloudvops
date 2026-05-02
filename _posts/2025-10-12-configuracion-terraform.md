@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Configuración del Entorno para Terraform: Guía Completa"
 date: 2025-10-11
 categories:

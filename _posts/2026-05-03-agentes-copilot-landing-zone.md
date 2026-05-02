@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "La Landing Zone Inteligente: Integrando Agentes de Microsoft Copilot en tu arquitectura Cloud"
 image: "/assets/images/copilot-agents-lz.png"
 categories:

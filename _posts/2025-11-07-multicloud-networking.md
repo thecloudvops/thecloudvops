@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Redes Multi-nube para Empresas: Buenas Prácticas en Azure + AWS + Kubernetes"
 date: 2025-11-07
 categories:

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "GitOps puro para Infraestructura: Adiós al \"Terraform Apply\" manual"
 image: "/assets/images/gitops-terraform.png"
 categories:

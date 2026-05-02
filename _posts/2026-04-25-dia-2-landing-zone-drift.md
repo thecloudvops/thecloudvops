@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "El \"Día 2\" de una Landing Zone: Cómo gestionar el mantenimiento y el drift"
 image: "/assets/images/day-2-landing-zone.png"
 categories:

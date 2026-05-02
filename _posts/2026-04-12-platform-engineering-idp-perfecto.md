@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Platform Engineering: Construyendo el \"Internal Developer Portal\" (IDP) perfecto"
 image: "/assets/images/platform-engineering.png"
 categories:

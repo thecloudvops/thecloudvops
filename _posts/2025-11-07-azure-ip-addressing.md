@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Arquitectura de Direccionamiento IP en Azure: Una Guía Completa para 2026"
 date: 2025-11-07
 categories:
