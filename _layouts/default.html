@@ -19,24 +19,7 @@
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <link rel="icon" type="image/svg+xml" href="{{ "/assets/images/favicon.svg" | relative_url }}">
     {% include head-custom.html %}
-    
-    <!-- Firebase Analytics -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
 
-      const firebaseConfig = {
-        projectId: "thecloudvops-pro",
-        appId: "1:184066491726:web:8c931916667ed12f430a1f",
-        storageBucket: "thecloudvops-pro.firebasestorage.app",
-        apiKey: "AIzaSyCs776Wz7ImdX4uXM-IZD2_61UZOhvC7HU",
-        authDomain: "thecloudvops-pro.firebaseapp.com",
-        messagingSenderId: "184066491726"
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
