@@ -80,6 +80,61 @@ No todo el mundo necesita una Landing Zone Híbrida. Pero si te reconoces en alg
 - Estás en **mitad de una migración** y necesitas gobernar recursos legacy y cloud al mismo tiempo.
 - Tienes presencia en **múltiples clouds** y quieres un modelo de seguridad coherente sin herramientas distintas para cada uno.
 
+## Dónde situar las políticas y Management Groups para Arc
+
+Esta es la pregunta práctica que más surge cuando alguien empieza a integrar Arc en una Landing Zone ya existente: **¿dónde exactamente asigno las políticas para que cubran los recursos híbridos?**
+
+La respuesta depende del alcance que quieras dar a cada política, y la estructura de Management Groups (MGs) de tu organización es la clave.
+
+### La jerarquía recomendada
+
+```
+Tenant Root Group
+└── MG: Organización
+    ├── MG: Platform
+    │   └── Suscripción: Management (Log Analytics, Defender, Policy)
+    └── MG: Landing Zones
+        ├── MG: Corp (workloads conectados a la red corporativa)
+        │   └── Suscripción: Hybrid-Workloads
+        │       └── RG: rg-arc-servers       ← recursos Arc viven aquí
+        └── MG: Online (workloads públicos, sin conexión híbrida)
+```
+
+Los recursos registrados con Azure Arc (`Microsoft.HybridCompute/machines`) se despliegan como recursos normales dentro de una **suscripción y Resource Group de tu elección**. Esto significa que heredan todas las políticas asignadas en la cadena de MGs superior, exactamente igual que una VM nativa de Azure.
+
+### Regla general: asigna en el nivel más alto que tenga sentido
+
+| Tipo de política | Nivel de asignación recomendado |
+|---|---|
+| Seguridad global (Defender, logs) | MG raíz de organización |
+| Políticas de red y conectividad | MG: Corp |
+| Configuración específica de Arc | MG: Landing Zones o suscripción Hybrid |
+| Excepciones por entorno | Resource Group específico |
+
+Por ejemplo, si quieres que **todos** los servidores Arc de la organización reporten a tu Log Analytics Workspace central, asigna esa política en el MG de organización. Si solo quieres aplicar una política de parcheo a los servidores del datacenter de Madrid, asígnala en el Resource Group correspondiente.
+
+### Ejemplo Terraform: asignación en el Management Group
+
+```hcl
+# Asignar la iniciativa de seguridad de Arc al MG de Landing Zones
+resource "azurerm_management_group_policy_assignment" "arc_security" {
+  name                 = "arc-security-baseline"
+  management_group_id  = "/providers/Microsoft.Management/managementGroups/landing-zones"
+  policy_definition_id = "/providers/Microsoft.Authorization/policySetDefinitions/12794019-7a00-42cf-95c2-882eed337cc8"
+  display_name         = "Azure Arc Security Baseline"
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  location = "westeurope"
+}
+```
+
+### Importante: la identidad del agente Arc no hereda el MG
+
+Un error frecuente es asumir que el agente `azcmagent` instalado en el servidor on-prem tiene los permisos del MG. No es así. El agente solo necesita permisos para **registrarse** en Azure (rol `Azure Connected Machine Onboarding` en la suscripción destino). Los permisos de las políticas los gestiona Azure Policy de forma independiente, mediante identidades gestionadas asignadas a la propia política.
+
 ## Conclusión
 
 Una Landing Zone Híbrida con Azure Arc no es simplemente "instalar un agente en unos servidores". Es un cambio de modelo operativo: pasar de gestionar infraestructura por ubicación física a gestionarla por política y propósito.
