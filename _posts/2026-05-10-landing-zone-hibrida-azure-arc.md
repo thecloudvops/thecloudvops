@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Landing Zone Híbrida: Gestiona tu infraestructura on-premises y cloud desde un único lugar con Azure Arc"
 image: "/assets/images/hybrid-landing-zone.png"
 categories:
