@@ -406,8 +406,8 @@ az policy remediation create \
 
 ## Conclusión
 
-La jerarquía CAF no es solo un diagrama bonito para presentaciones. Es la infraestructura sobre la que construyes toda la gobernanza de tu organización en Azure. Cuando la combinas con Terraform para gestionar las políticas como código, consigues algo muy valioso: **gobernanza reproducible, revisable y auditable**.
+La jerarquía CAF no es solo un diagrama bonito para presentaciones. Es la infraestructura sobre la que construyes toda la gobernanza de tu organización en Azure. Cuando la combinas con Terraform para gestionar las políticas —y sus excepciones— como código, consigues algo muy valioso: **gobernanza reproducible, revisable y auditable**.
 
-Cada política vive en un fichero con su historial de cambios en Git. Cada asignación es explícita y documentada. Y cuando alguien pregunta "¿por qué no puedo desplegar en esta región?", la respuesta está en un `azurerm_policy_definition` que puedes leer, entender y modificar si es necesario.
+Cada política vive en un fichero con su historial de cambios en Git. Cada asignación y cada excepción son explícitas, documentadas y con fecha de caducidad. Y cuando alguien pregunta "¿por qué no puedo desplegar en esta región?", la respuesta está en un `azurerm_policy_definition` que puedes leer, entender y modificar si es necesario. Y cuando alguien pregunta "¿por qué este proyecto sí puede?", la respuesta también está en Git, con el ticket que lo justifica.
 
-Eso, en definitiva, es lo que separa una Landing Zone gestionada de un entorno Azure que fue creciendo sin control.
+Eso, en definitiva, es lo que separa una Landing Zone gestionada de un entorno Azure que fue creciendo sin control: no solo las reglas, sino también el control de cuándo y por qué se rompen.
