@@ -37,6 +37,8 @@ Tenant Root Group
     └── Decommissioned     → suscripciones en proceso de baja
 ```
 
+![Jerarquía de Management Groups del CAF](/assets/images/caf-hierarchy.png)
+
 **¿Por qué esta estructura importa para las políticas?**
 
 Porque Azure Policy hereda hacia abajo. Una política asignada en el MG raíz de tu organización se aplica automáticamente a **todas** las suscripciones y recursos que cuelguen de él. Esto te permite definir reglas una sola vez y tener la certeza de que se aplican en todos sitios, sin excepciones.
