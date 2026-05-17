@@ -357,6 +357,35 @@ resource "azurerm_role_assignment" "security_baseline_remediation" {
 }
 ```
 
+## Paso 6: Gestionar las excepciones (Exemptions) como código
+
+Por muy buena que sea tu gobernanza, siempre habrá excepciones. Un entorno "legacy" que no puede cumplir una política de red, o un proyecto especial que necesita desplegar en una región no permitida.
+
+El gran error es aprobar estas excepciones haciendo clics en el portal de Azure: se pierde el rastro, nadie sabe por qué se aprobó ni cuándo caduca. Terraform te permite gestionar estas excepciones (`azurerm_management_group_policy_exemption` o `azurerm_subscription_policy_exemption`) manteniendo un control estricto.
+
+```hcl
+# policies/exemptions/legacy_project_exemption.tf
+
+# Excepción a nivel de suscripción para el proyecto Legacy
+resource "azurerm_subscription_policy_exemption" "legacy_region_exemption" {
+  name                 = "legacy-region-exemption"
+  subscription_id      = "/subscriptions/00000000-0000-0000-0000-000000000000"
+  policy_assignment_id = azurerm_management_group_policy_assignment.sandbox_locations.id
+  exemption_category   = "Waiver" # Puede ser Waiver o Mitigated
+  
+  display_name = "Excepción temporal de región para Proyecto Legacy"
+  description  = "Aprobado por el comité de arquitectura (Ticket IT-4582). Caduca en 3 meses."
+
+  # Opcional pero muy recomendado: establecer una fecha de caducidad
+  expires_on = "2026-08-31T23:59:00Z"
+}
+```
+
+Con esto logramos:
+1. **Trazabilidad:** Queda registrado en Git quién aprobó la excepción y el ticket asociado.
+2. **Temporalidad:** La excepción caduca automáticamente sin intervención manual.
+3. **Visibilidad:** Una simple búsqueda en el repositorio nos muestra todas las excepciones activas.
+
 ## El ciclo completo en la práctica
 
 Una vez desplegada la estructura, el flujo de trabajo para añadir una nueva política es siempre el mismo:
