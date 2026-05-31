@@ -15,11 +15,13 @@ tags:
   - CAF
 ---
 
-Si alguna vez has usado **AWS Security Hub**, entiendes inmediatamente la propuesta: un único panel desde el que ver el estado de cumplimiento de toda tu organización, con hallazgos agrupados por severidad, cuenta y control. Sin tener que entrar en cada cuenta por separado, sin buscar en logs, sin esperar a que alguien prepare un informe.
+En las últimas semanas hemos construido, paso a paso, la capa de gobernanza de una Landing Zone real: primero definiendo y asignando **políticas con Terraform** a lo largo de la jerarquía de Management Groups del CAF, y después aprendiendo a gestionar las **excepciones a esas políticas como código**, con trazabilidad, fecha de caducidad y control a través de Pull Requests.
 
-Azure tiene todos los ingredientes para construir exactamente eso. Solo que no viene montado de serie: tienes que ensamblar las piezas. En este artículo vamos a ver cómo hacerlo de forma real, aplicable a tu empresa desde el primer día, usando **Azure Policy**, **Log Analytics** y **Azure Workbooks**.
+Todo ese trabajo —políticas, iniciativas, asignaciones, excepciones— genera una cantidad enorme de datos de compliance. El problema es que, por defecto, esos datos viven dispersos en cada suscripción. No hay una vista única que diga: ¿cuántos recursos están fuera de regla hoy? ¿En qué suscripción está el mayor problema? ¿Estamos mejorando o empeorando?
 
-El objetivo al final del artículo: un dashboard centralizado que muestra el estado de compliance de todas tus suscripciones en tiempo real, desglosado por política, por Management Group y por severidad.
+Este artículo es el cierre de esa trilogía: vamos a construir el **panel de control centralizado** que da visibilidad sobre todo lo que hemos definido. Algo similar a lo que AWS Security Hub ofrece de serie, pero construido sobre nuestras propias políticas, con **Azure Policy**, **Log Analytics** y **Azure Workbooks**.
+
+El objetivo al final del artículo: un dashboard en tiempo real con el estado de compliance de todas tus suscripciones, desglosado por política, por Management Group y por severidad, con alertas proactivas cuando algo cae por debajo del umbral.
 
 ## Las piezas del puzzle
 
@@ -289,8 +291,16 @@ Con estas piezas ensambladas tienes:
 
 La diferencia con AWS Security Hub es que aquí tú controlas exactamente qué ves y cómo se presenta. No dependes de los findings predefinidos de AWS: tus políticas son tuyas, tu dashboard es tuyo.
 
-## Conclusión
+## Conclusión: la trilogía de gobernanza completa
 
-Azure Policy genera datos de compliance muy ricos, pero por defecto viven aislados en cada suscripción. La combinación de **Diagnostic Settings → Log Analytics → Workbooks + Alertas** convierte esos datos dispersos en inteligencia centralizada y accionable.
+Con este artículo cerramos un ciclo que empezamos hace dos semanas:
 
-El equipo de plataforma deja de reaccionar a problemas de compliance cuando alguien los descubre, y empieza a detectarlos antes de que tengan impacto. Eso, en esencia, es lo que hace un Security Hub: no más sorpresas en la auditoría.
+1. **[CAF Landing Zone: Cómo definir y asignar políticas de Azure con Terraform](/blog/caf-landing-zone-policies-terraform)** — construir la estructura de Management Groups y gestionar políticas como código
+2. **[Policy Exceptions as Code en Azure Landing Zones con Terraform](/blog/policy-exceptions-as-code-azure-terraform)** — controlar las excepciones con trazabilidad, caducidad y proceso de aprobación
+3. **Este artículo** — el panel de control que da visibilidad sobre todo lo anterior en tiempo real
+
+Azure Policy genera datos de compliance muy ricos, pero por defecto viven dispersos en cada suscripción. La combinación de **Diagnostic Settings → Log Analytics → Workbooks + Alertas** convierte esos datos en inteligencia centralizada y accionable.
+
+El equipo de plataforma deja de reaccionar a problemas de compliance cuando alguien los descubre por accidente, y empieza a detectarlos antes de que tengan impacto. Eso, en esencia, es lo que hace un Security Hub: no más sorpresas en la auditoría.
+
+En las próximas semanas continuamos con la siguiente dimensión de gobernanza: **el RBAC como código** y la **detección de drift** para garantizar que nadie pueda saltarse el proceso sin que el equipo lo sepa.
