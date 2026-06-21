@@ -19,7 +19,7 @@ tags:
 > 
 > 1. **Parte 1:** [MCP (Model Context Protocol): conecta Claude a tu infraestructura de Azure](/blog/mcp-claude-azure-infraestructura/)
 > 2. **Parte 2 (este artículo):** [Claude como asistente de gobernanza: analiza el compliance de tu Landing Zone con IA](/blog/claude-gobernanza-azure-compliance-ia/)
-> 3. **Parte 3:** [Agentes IA en tu pipeline de Terraform: de la detección de drift al Pull Request automático](/blog/agente-ia-terraform-drift-pull-request/)
+> 3. **Parte 3:** Agentes IA en tu pipeline de Terraform: de la detección de drift al Pull Request automático *(Disponible el 5 de julio)*
 
 En el artículo anterior montamos el servidor MCP que conecta Claude a nuestra infraestructura de Azure. Ahora vamos a ver para qué sirve realmente esa conexión en el día a día de un equipo de plataforma.
 
