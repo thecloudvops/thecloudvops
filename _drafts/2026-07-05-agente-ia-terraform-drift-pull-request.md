@@ -15,6 +15,13 @@ tags:
   - Agentes IA
 ---
 
+> 💡 **Serie: Gobernanza de Agentes de IA en Azure**
+> Este artículo es la tercera entrega de una serie de 3 partes dedicada a conectar, analizar y automatizar la gobernanza de tu infraestructura en Azure utilizando Inteligencia Artificial:
+> 
+> 1. **Parte 1:** [MCP (Model Context Protocol): conecta Claude a tu infraestructura de Azure](/blog/mcp-claude-azure-infraestructura/)
+> 2. **Parte 2:** [Claude como asistente de gobernanza: analiza el compliance de tu Landing Zone con IA](/blog/claude-gobernanza-azure-compliance-ia/)
+> 3. **Parte 3 (este artículo):** [Agentes IA en tu pipeline de Terraform: de la detección de drift al Pull Request automático](/blog/agente-ia-terraform-drift-pull-request/)
+
 Esta es la tercera y última entrega de la serie sobre IA aplicada a la gestión de Landing Zones en Azure. En el primer artículo montamos el servidor MCP que conecta Claude a nuestra infraestructura. En el segundo, lo usamos para analizar el compliance en lenguaje natural. Hoy cerramos con el caso más ambicioso: **un agente autónomo que detecta drift, entiende el problema y propone el fix**.
 
 No solo detecta. No solo avisa. Propone una solución concreta en código Terraform y abre un Pull Request para que el equipo lo revise.

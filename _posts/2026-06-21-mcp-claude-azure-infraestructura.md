@@ -14,6 +14,13 @@ tags:
   - Automatización
 ---
 
+> 💡 **Serie: Gobernanza de Agentes de IA en Azure**
+> Este artículo es la primera entrega de una serie de 3 partes dedicada a conectar, analizar y automatizar la gobernanza de tu infraestructura en Azure utilizando Inteligencia Artificial:
+> 
+> 1. **Parte 1 (este artículo):** [MCP (Model Context Protocol): conecta Claude a tu infraestructura de Azure](/blog/mcp-claude-azure-infraestructura/)
+> 2. **Parte 2:** [Claude como asistente de gobernanza: analiza el compliance de tu Landing Zone con IA](/blog/claude-gobernanza-azure-compliance-ia/)
+> 3. **Parte 3:** [Agentes IA en tu pipeline de Terraform: de la detección de drift al Pull Request automático](/blog/agente-ia-terraform-drift-pull-request/)
+
 Durante los últimos meses hemos construido una Landing Zone gobernada como código: políticas, excepciones, RBAC y detección de drift. Todo versionado en Git, revisado en Pull Requests, reproducible y auditable.
 
 Ahora viene la siguiente capa: **darle a esa infraestructura un copiloto de IA que la entienda y pueda actuar sobre ella**.

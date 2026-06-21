@@ -14,6 +14,13 @@ tags:
   - Landing Zone
 ---
 
+> 💡 **Serie: Gobernanza de Agentes de IA en Azure**
+> Este artículo es la segunda entrega de una serie de 3 partes dedicada a conectar, analizar y automatizar la gobernanza de tu infraestructura en Azure utilizando Inteligencia Artificial:
+> 
+> 1. **Parte 1:** [MCP (Model Context Protocol): conecta Claude a tu infraestructura de Azure](/blog/mcp-claude-azure-infraestructura/)
+> 2. **Parte 2 (este artículo):** [Claude como asistente de gobernanza: analiza el compliance de tu Landing Zone con IA](/blog/claude-gobernanza-azure-compliance-ia/)
+> 3. **Parte 3:** [Agentes IA en tu pipeline de Terraform: de la detección de drift al Pull Request automático](/blog/agente-ia-terraform-drift-pull-request/)
+
 En el artículo anterior montamos el servidor MCP que conecta Claude a nuestra infraestructura de Azure. Ahora vamos a ver para qué sirve realmente esa conexión en el día a día de un equipo de plataforma.
 
 El caso de uso más inmediato y potente: usar Claude para **analizar el estado de compliance de tu Landing Zone en lenguaje natural**. Sin escribir queries KQL. Sin navegar por el portal. Sin esperar a que alguien prepare un informe. Una pregunta directa y una respuesta contextualizada.
