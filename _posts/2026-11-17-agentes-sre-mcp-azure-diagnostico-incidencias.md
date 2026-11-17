@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "De scripts reactivos a Agentes SRE: Cómo usar Model Context Protocol (MCP) para diagnosticar incidencias en Azure"
-date: 2026-11-20
+date: 2026-11-17
 categories:
   - blog
 tags:
